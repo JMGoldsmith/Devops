@@ -1,0 +1,27 @@
+---
+- hosts: all
+  sudo:	yes
+  user:	vagrant
+  tasks:
+    - name: Add Nginx Repository
+      apt_repository: repo='ppa:nginx/stable' state=present
+      register: ppainstalled
+
+    - name: Install Nginx
+      apt: pkg=nginx state=latest update_cache=true
+      when: ppainstalled|success
+      notify:
+      - Start Nginx
+
+    - name: Install Postgres
+      apt: pkg=postgresql state=latest update_cache=true
+
+    - name: rubygems | install bundler
+      shell: gem install bundler
+
+    - name: rubygems | install rails
+      shell: gem install rails
+
+  handlers:
+     - name: Start Nginx
+       service: name=nginx state=started
