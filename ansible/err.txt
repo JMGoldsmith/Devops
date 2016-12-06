@@ -1,0 +1,70 @@
+failed: [default] => {"changed": true, "cmd": "gem install rails", "delta": "0:00:04.404864", "end": "2016-12-06 04:11:49.319069", "rc": 1, "start": "2016-12-06 04:11:44.914205", "warnings": []}
+stderr: ERROR:  Error installing rails:
+	ERROR: Failed to build gem native extension.
+
+    current directory: /var/lib/gems/2.3.0/gems/nokogiri-1.6.8.1/ext/nokogiri
+/usr/bin/ruby2.3 -r ./siteconf20161206-10211-5cfhim.rb extconf.rb
+checking if the C compiler accepts ... yes
+Building nokogiri using packaged libraries.
+Using mini_portile version 2.1.0
+checking for gzdopen() in -lz... no
+zlib is missing; necessary for building libxml2
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/usr/bin/$(RUBY_BASE_NAME)2.3
+	--help
+	--clean
+	--use-system-libraries
+	--enable-static
+	--disable-static
+	--with-zlib-dir
+	--without-zlib-dir
+	--with-zlib-include
+	--without-zlib-include=${zlib-dir}/include
+	--with-zlib-lib
+	--without-zlib-lib=${zlib-dir}/lib
+	--enable-cross-build
+	--disable-cross-build
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /var/lib/gems/2.3.0/extensions/x86_64-linux/2.3.0/nokogiri-1.6.8.1/mkmf.log
+
+extconf failed, exit code 1
+
+Gem files will remain installed in /var/lib/gems/2.3.0/gems/nokogiri-1.6.8.1 for inspection.
+Results logged to /var/lib/gems/2.3.0/extensions/x86_64-linux/2.3.0/nokogiri-1.6.8.1/gem_make.out
+stdout: Successfully installed i18n-0.7.0
+Successfully installed thread_safe-0.3.5
+Successfully installed tzinfo-1.2.2
+Successfully installed minitest-5.10.1
+Successfully installed concurrent-ruby-1.0.2
+Successfully installed activesupport-5.0.0.1
+Successfully installed rack-2.0.1
+Successfully installed rack-test-0.6.3
+Successfully installed mini_portile2-2.1.0
+Building native extensions.  This could take a while...
+
+FATAL: all hosts have already failed -- aborting
+
+PLAY RECAP ********************************************************************
+           to retry, use: --limit @/Users/John/playbook.retry
+
+default                    : ok=13   changed=10   unreachable=0    failed=1
+
+Ansible failed to complete successfully. Any error output should be
+visible above. Please fix these errors and try again.
